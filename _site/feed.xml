@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2020-01-06T18:41:03+08:00</updated><id>http://localhost:4000/blog/feed.xml</id><title type="html">十年糊涂 一梦黄粱</title><subtitle>one more try</subtitle><entry><title type="html">阿里云ECS安装MYSQL</title><link href="http://localhost:4000/blog/%E9%98%BF%E9%87%8C%E4%BA%91/2020/01/05/aliyun-ecs-install-mysql.html" rel="alternate" type="text/html" title="阿里云ECS安装MYSQL" /><published>2020-01-05T20:42:32+08:00</published><updated>2020-01-05T20:42:32+08:00</updated><id>http://localhost:4000/blog/%E9%98%BF%E9%87%8C%E4%BA%91/2020/01/05/aliyun-ecs-install-mysql</id><content type="html" xml:base="http://localhost:4000/blog/%E9%98%BF%E9%87%8C%E4%BA%91/2020/01/05/aliyun-ecs-install-mysql.html">&lt;p&gt;前提 操作系统 centeros7.5  mysql 6.5&lt;/p&gt;
+
+&lt;h4 id=&quot;进入主题&quot;&gt;进入主题&lt;/h4&gt;
+
+&lt;p&gt;首先 yum list mysql 发现没货&lt;/p&gt;
+
+&lt;h5 id=&quot;第一步-获取repo-解压-安装到系统-如下三行&quot;&gt;第一步 获取repo 解压 安装到系统 如下三行&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+
+rpm -ivh mysql-community-release-el6-5.noarch.rpm
+
+yum repolist all | grep mysql
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;发现 enable的只有5.6的社区版&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql-connectors-community/x86_64 MySQL Connectors Community     enabled:    113
+mysql-connectors-community-source MySQL Connectors Community - S disabled
+mysql-tools-community/x86_64      MySQL Tools Community          enabled:     84
+mysql-tools-community-source      MySQL Tools Community - Source disabled
+mysql55-community/x86_64          MySQL 5.5 Community Server     disabled
+mysql55-community-source          MySQL 5.5 Community Server - S disabled
+mysql56-community/x86_64          MySQL 5.6 Community Server     enabled:    549
+mysql56-community-source          MySQL 5.6 Community Server - S disabled
+mysql57-community-dmr/x86_64      MySQL 5.7 Community Server Dev disabled
+mysql57-community-dmr-source      MySQL 5.7 Community Server Dev disabled
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;第二步-开始安装&quot;&gt;第二步 开始安装&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum install mysql-community-server -y
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;第三步-启动&quot;&gt;第三步 启动&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service mysqld start
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h5 id=&quot;第四步-安全设置&quot;&gt;第四步 安全设置&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql_secure_installation
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Enter current password for root (enter for none): 
+这里有点意思
+首先让你输密码 因为是刚刚安装的 直接enter键 
+然后设置密码&lt;/p&gt;
+
+&lt;p&gt;Remove anonymous users
+是否删除匿名用户 =&amp;gt; y 删除&lt;/p&gt;
+
+&lt;p&gt;Disallow root login remotely? 
+是否允许远程登录 =&amp;gt; n 允许 (根据不同环境灵活处理)&lt;/p&gt;
+
+&lt;p&gt;Remove test database and access to it?
+是否删除测试库 =&amp;gt; y 删除&lt;/p&gt;
+
+&lt;p&gt;Reload privilege tables now?
+是否更新权限 =&amp;gt; y 是&lt;/p&gt;
+
+&lt;h5 id=&quot;第五步-数据库设置&quot;&gt;第五步 数据库设置&lt;/h5&gt;
+&lt;p&gt;登录数据库  &lt;code class=&quot;highlighter-rouge&quot;&gt;mysql  -u root -p&lt;/code&gt;
+显示字符集  &lt;code class=&quot;highlighter-rouge&quot;&gt;show variables like 'character%';&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; +--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | utf8                       |
+| character_set_connection | utf8                       |
+| character_set_database   | latin1                     |
+| character_set_filesystem | binary                     |
+| character_set_results    | utf8                       |
+| character_set_server     | latin1                     |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+8 rows in set (0.00 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;改字符集开始&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/my.cnf
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;在[mysqld]下加一行&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[mysqld]
+character-set-server=utf8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;重启mysql&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service mysqld restart 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;登录 显示字符集 同上，结果如下。 配置完成&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;+--------------------------+----------------------------+
+| Variable_name            | Value                      |
++--------------------------+----------------------------+
+| character_set_client     | utf8                       |
+| character_set_connection | utf8                       |
+| character_set_database   | utf8                       |
+| character_set_filesystem | binary                     |
+| character_set_results    | utf8                       |
+| character_set_server     | utf8                       |
+| character_set_system     | utf8                       |
+| character_sets_dir       | /usr/share/mysql/charsets/ |
++--------------------------+----------------------------+
+8 rows in set (0.00 sec)
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">前提 操作系统 centeros7.5 mysql 6.5</summary></entry><entry><title type="html">jekyll 搭建</title><link href="http://localhost:4000/blog/jekyll/update/2019/12/12/try.html" rel="alternate" type="text/html" title="jekyll 搭建" /><published>2019-12-12T20:42:32+08:00</published><updated>2019-12-12T20:42:32+08:00</updated><id>http://localhost:4000/blog/jekyll/update/2019/12/12/try</id><content type="html" xml:base="http://localhost:4000/blog/jekyll/update/2019/12/12/try.html">&lt;p&gt;刚买了个空间。想做点什么。首当其冲的就是搞个个人博客。上网浏览了一圈。貌似jekyll比较轻量级。安装上手比较容易。搞一个试试&lt;/p&gt;
+
+&lt;p&gt;官网https://www.jekyll.com.cn/展示是这样的：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; $ gem install jekyll
+~ $ jekyll new my-awesome-site
+~ $ cd my-awesome-site
+~/my-awesome-site $ jekyll serve
+
+# =&amp;gt; Now browse to http://localhost:4000
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;wtf,gem是什么玩意？&lt;/p&gt;
+
+&lt;p&gt;百度一下&lt;/p&gt;
+
+&lt;p&gt;Gem介绍：&lt;/p&gt;
+
+&lt;p&gt;Gem是一个管理Ruby库和程序的标准包，它通过Ruby Gem（如 http://rubygems.org/ ）源来查找、安装、升级和卸载软件包，非常的便捷。
+Ruby 1.9.2版本默认已安装Ruby Gem，如果你使用其它发行版本，请参考“如何安装Ruby Gem”。&lt;/p&gt;
+
+&lt;p&gt;Ruby gem包的安装方式：&lt;/p&gt;
+
+&lt;p&gt;所有的gem包，会被安装到 /[Ruby root]/lib/ruby/gems/[ver]/ 目录下，这其中包括了Cache、doc、gems、specifications 4个目录，cache下放置下载的原生gem包，gems下则放置的是解压过的gem包。
+当安装过程中遇到问题时，可以进入这些目录，手动删除有问题的gem包，然后重新运行 gem install [gemname] 命令即可。&lt;/p&gt;
+
+&lt;p&gt;原来安装gem的前提是得安装一个ruby，那就开搞&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum install ruby
+yum install rubygems
+gem install jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;shit，还是不行，报错 ERROR public_suffix requires Ruby version &amp;gt;= 2.1.&lt;/p&gt;
+
+&lt;p&gt;再看一下自己的机器&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ruby -v&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;靠 默认安装的是1.6的，怎么办？升级呗&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;curl -L get.rvm.io | bash -s stable&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;先安装rvm  报错：&lt;code class=&quot;highlighter-rouge&quot;&gt;GPG version 2.1.17 have a bug which cause failures during fetching keys from remote server. Please downgrade or upgrade to newer version (if available) or use the second method described above&lt;/code&gt;
+照提示 安装 获取一下公钥&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3&lt;/code&gt;
+再次执行&lt;code class=&quot;highlighter-rouge&quot;&gt;curl -L get.rvm.io | bash -s stable&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;OK！ rvm安装成功&lt;/p&gt;
+
+&lt;p&gt;看提示 用之前需要 &lt;code class=&quot;highlighter-rouge&quot;&gt;source一下/etc/profile.d/rvm.sh&lt;/code&gt;
+马上执行&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rvm list know&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;看看ruby现在最新版本是2.4.1
+开始安装&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rvm install 2.4.1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;漫长的等待。。。。。。
+安装成功&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ruby -v&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;哈哈，2.4.1&lt;/p&gt;
+
+&lt;p&gt;重试&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;gem install jekyll
+jekyll -v 
+3.7.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装成功&lt;/p&gt;
+
+&lt;p&gt;非常happy的new 自己的项目，然后&lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll server&lt;/code&gt;让他跑起来。结果又报错了。。。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/usr/local/rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler (LoadError)
+    from /usr/local/rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+    from /usr/local/rvm/gems/ruby-2.4.1/gems/jekyll-3.7.3/lib/jekyll/plugin_manager.rb:48:in `require_from_bundler'
+    from /usr/local/rvm/gems/ruby-2.4.1/gems/jekyll-3.7.3/exe/jekyll:11:in `&amp;lt;top (required)&amp;gt;'
+    from /usr/local/rvm/gems/ruby-2.4.1/bin/jekyll:23:in `load'
+    from /usr/local/rvm/gems/ruby-2.4.1/bin/jekyll:23:in `&amp;lt;main&amp;gt;'
+    from /usr/local/rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+    from /usr/local/rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `&amp;lt;main&amp;gt;'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;需要 bundler&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gem install jekyll bundler&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;再来一遍 再次报错：&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;    /usr/local/rvm/gems/ruby-2.4.1/gems/bundler-1.16.1/lib/bundler/resolver.rb:289:in `block in verify_gemfile_dependencies_are_found!': Could not find gem 'minima (~&amp;gt; 2.0)' in any of the gem sources listed in your Gemfile. (Bundler::GemNotFound)
+    from /usr/local/rvm/gems/ruby-2.4.1/gems/bundler-1.16.1/lib/bundler/resolver.rb:257:in `each'
+    from /usr/local/rvm/gems/ruby-2.4.1/gems/bundler-1.16.1/lib/bundler/resolver.rb:257:in `verify_gemfile_dependencies_are_found!'
+    from /usr/local/rvm/gems/ruby-2.4.1/gems/bundler-1.16.1/lib/bundler/resolver.rb:48:in `start'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gem install minima &amp;amp; gem install jekyll-feed&lt;/code&gt;
+再来一遍&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Configuration file: /data/blog/myblog/_config.yml
+            Source: /data/blog/myblog
+       Destination: /data/blog/myblog/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    done in 0.387 seconds.
+ Auto-regeneration: enabled for '/data/blog/myblog'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;终于成功！&lt;/p&gt;</content><author><name></name></author><summary type="html">刚买了个空间。想做点什么。首当其冲的就是搞个个人博客。上网浏览了一圈。貌似jekyll比较轻量级。安装上手比较容易。搞一个试试</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/blog/jekyll/update/2019/12/10/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2019-12-10T11:42:32+08:00</published><updated>2019-12-10T11:42:32+08:00</updated><id>http://localhost:4000/blog/jekyll/update/2019/12/10/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/blog/jekyll/update/2019/12/10/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Where &lt;code class=&quot;highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>

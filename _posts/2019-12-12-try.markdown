@@ -1,0 +1,128 @@
+---
+layout: post
+title:  "jekyll 搭建"
+date:   2019-12-12 20:42:32 +0800
+categories: jekyll update
+---
+刚买了个空间。想做点什么。首当其冲的就是搞个个人博客。上网浏览了一圈。貌似jekyll比较轻量级。安装上手比较容易。搞一个试试
+
+官网https://www.jekyll.com.cn/展示是这样的：
+```
+ $ gem install jekyll
+~ $ jekyll new my-awesome-site
+~ $ cd my-awesome-site
+~/my-awesome-site $ jekyll serve
+
+# => Now browse to http://localhost:4000
+```
+wtf,gem是什么玩意？
+
+
+百度一下
+
+Gem介绍：
+
+Gem是一个管理Ruby库和程序的标准包，它通过Ruby Gem（如 http://rubygems.org/ ）源来查找、安装、升级和卸载软件包，非常的便捷。
+Ruby 1.9.2版本默认已安装Ruby Gem，如果你使用其它发行版本，请参考“如何安装Ruby Gem”。
+
+Ruby gem包的安装方式：
+
+所有的gem包，会被安装到 /[Ruby root]/lib/ruby/gems/[ver]/ 目录下，这其中包括了Cache、doc、gems、specifications 4个目录，cache下放置下载的原生gem包，gems下则放置的是解压过的gem包。
+当安装过程中遇到问题时，可以进入这些目录，手动删除有问题的gem包，然后重新运行 gem install [gemname] 命令即可。
+
+
+原来安装gem的前提是得安装一个ruby，那就开搞
+```
+yum install ruby
+yum install rubygems
+gem install jekyll
+```
+shit，还是不行，报错 ERROR public_suffix requires Ruby version >= 2.1.
+
+
+再看一下自己的机器 
+
+```ruby -v ``` 
+
+靠 默认安装的是1.6的，怎么办？升级呗
+
+```curl -L get.rvm.io | bash -s stable ```
+
+先安装rvm  报错：```GPG version 2.1.17 have a bug which cause failures during fetching keys from remote server. Please downgrade or upgrade to newer version (if available) or use the second method described above```
+照提示 安装 获取一下公钥
+
+```gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3```
+再次执行```curl -L get.rvm.io | bash -s stable```
+
+
+OK！ rvm安装成功
+
+
+看提示 用之前需要 ```source一下/etc/profile.d/rvm.sh```
+马上执行
+
+```rvm list know ```
+
+看看ruby现在最新版本是2.4.1
+开始安装
+
+```rvm install 2.4.1```
+
+
+漫长的等待。。。。。。
+安装成功
+
+
+```ruby -v``` 
+
+哈哈，2.4.1
+
+重试
+
+```
+gem install jekyll
+jekyll -v 
+3.7.1
+```
+
+安装成功
+
+非常happy的new 自己的项目，然后```jekyll server```让他跑起来。结果又报错了。。。
+```
+/usr/local/rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:55:in `require': cannot load such file -- bundler (LoadError)
+    from /usr/local/rvm/rubies/ruby-2.4.1/lib/ruby/site_ruby/2.4.0/rubygems/core_ext/kernel_require.rb:55:in `require'
+    from /usr/local/rvm/gems/ruby-2.4.1/gems/jekyll-3.7.3/lib/jekyll/plugin_manager.rb:48:in `require_from_bundler'
+    from /usr/local/rvm/gems/ruby-2.4.1/gems/jekyll-3.7.3/exe/jekyll:11:in `<top (required)>'
+    from /usr/local/rvm/gems/ruby-2.4.1/bin/jekyll:23:in `load'
+    from /usr/local/rvm/gems/ruby-2.4.1/bin/jekyll:23:in `<main>'
+    from /usr/local/rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `eval'
+    from /usr/local/rvm/gems/ruby-2.4.1/bin/ruby_executable_hooks:15:in `<main>'
+```
+需要 bundler
+
+```gem install jekyll bundler```
+
+再来一遍 再次报错：
+```
+    /usr/local/rvm/gems/ruby-2.4.1/gems/bundler-1.16.1/lib/bundler/resolver.rb:289:in `block in verify_gemfile_dependencies_are_found!': Could not find gem 'minima (~> 2.0)' in any of the gem sources listed in your Gemfile. (Bundler::GemNotFound)
+    from /usr/local/rvm/gems/ruby-2.4.1/gems/bundler-1.16.1/lib/bundler/resolver.rb:257:in `each'
+    from /usr/local/rvm/gems/ruby-2.4.1/gems/bundler-1.16.1/lib/bundler/resolver.rb:257:in `verify_gemfile_dependencies_are_found!'
+    from /usr/local/rvm/gems/ruby-2.4.1/gems/bundler-1.16.1/lib/bundler/resolver.rb:48:in `start'
+```
+
+```gem install minima & gem install jekyll-feed```
+再来一遍
+
+```
+Configuration file: /data/blog/myblog/_config.yml
+            Source: /data/blog/myblog
+       Destination: /data/blog/myblog/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    done in 0.387 seconds.
+ Auto-regeneration: enabled for '/data/blog/myblog'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+```
+
+终于成功！

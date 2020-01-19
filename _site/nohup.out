@@ -1,0 +1,242 @@
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.384 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+[2019-12-10 18:05:41] ERROR `/blog' not found.
+[2019-12-10 18:05:44] ERROR `/blog' not found.
+[2019-12-10 18:06:05] ERROR `/blog' not found.
+[2019-12-10 18:06:10] ERROR `/blog' not found.
+[2019-12-10 18:07:22] ERROR `/blog' not found.
+[2019-12-10 18:15:33] ERROR `/blog' not found.
+[2019-12-10 18:15:35] ERROR `/blog' not found.
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.431 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+[2019-12-10 18:17:49] ERROR `/blog' not found.
+      Regenerating: 1 file(s) changed at 2019-12-12 20:55:31
+                    _posts/2019-12-12-try.markdown
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.111661478 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.525 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2019-12-12 20:58:06
+                    _posts/2019-12-12-try.markdown
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.135072363 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.389 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2019-12-12 21:03:32
+                    about.markdown
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.122671168 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.561 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2019-12-12 21:05:50
+                    about.markdown
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.122285829 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.349 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2019-12-13 17:08:51
+                    _posts/2019-12-12-try.markdown
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.151550961 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.415 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2019-12-13 17:12:04
+                    _posts/2019-12-12-try.markdown
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.135338929 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.418 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2019-12-13 17:13:34
+                    _posts/2019-12-12-try.markdown
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.125925461 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.44 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2019-12-13 17:14:59
+                    _posts/2019-12-12-try.markdown
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.11936165 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.411 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+      Regenerating: 1 file(s) changed at 2019-12-13 18:09:52
+                    _posts/2019-12-12-try.markdown
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.119242539 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.527 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+[2019-12-18 20:11:41] ERROR `/blog' not found.
+[2019-12-18 20:11:49] ERROR `/blog' not found.
+[2019-12-18 20:16:53] ERROR `/blog/link/' not found.
+[2019-12-18 20:17:49] ERROR `/blog/link/' not found.
+[2019-12-18 20:17:56] ERROR `/blog/link/' not found.
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.407 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+[2019-12-18 20:27:17] ERROR `/blog' not found.
+[2020-01-06 17:16:46] ERROR `/blog' not found.
+[2020-01-06 17:16:54] ERROR `/blog' not found.
+[2020-01-06 17:18:56] ERROR `/blog' not found.
+      Regenerating: 1 file(s) changed at 2020-01-06 18:36:31
+                    _posts/2020-01-06-阿里云ECS安装MYSQL.markdown
+[33m          Skipping: _posts/2020-01-06-阿里云ECS安装MYSQL.markdown has a future date[0m
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.353515764 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+[33m          Skipping: _posts/2020-01-06-阿里云ECS安装MYSQL.markdown has a future date[0m
+       Jekyll Feed: Generating feed for posts
+                    done in 0.809 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+      Regenerating: 2 file(s) changed at 2020-01-06 18:38:54
+                    _posts/2020-01-06-aliyun-ecs-install-MYSQL.markdown
+                    _posts/2020-01-06-阿里云ECS安装MYSQL.markdown
+[33m          Skipping: _posts/2020-01-06-aliyun-ecs-install-MYSQL.markdown has a future date[0m
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.119494425 seconds.
+                    
+      Regenerating: 2 file(s) changed at 2020-01-06 18:39:13
+                    _posts/2020-01-06-aliyun-ecs-install-mysql.markdown
+                    _posts/2020-01-06-aliyun-ecs-install-MYSQL.markdown
+[33m          Skipping: _posts/2020-01-06-aliyun-ecs-install-mysql.markdown has a future date[0m
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.0897861 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+[33m          Skipping: _posts/2020-01-06-aliyun-ecs-install-mysql.markdown has a future date[0m
+       Jekyll Feed: Generating feed for posts
+                    done in 0.408 seconds.
+ Auto-regeneration: enabled for '/data/jekyll/web-site'
+    Server address: http://127.0.0.1:4000/blog/
+  Server running... press ctrl-c to stop.
+      Regenerating: 2 file(s) changed at 2020-01-06 18:40:38
+                    _posts/2020-01-05-aliyun-ecs-install-mysql.markdown
+                    _posts/2020-01-06-aliyun-ecs-install-mysql.markdown
+[33m          Skipping: _posts/2020-01-05-aliyun-ecs-install-mysql.markdown has a future date[0m
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.14733413 seconds.
+                    
+      Regenerating: 1 file(s) changed at 2020-01-06 18:40:56
+                    _posts/2020-01-05-aliyun-ecs-install-mysql.markdown
+       Jekyll Feed: Generating feed for posts
+                    ...done in 0.104870065 seconds.
+                    
+Configuration file: /data/jekyll/web-site/_config.yml
+            Source: /data/jekyll/web-site
+       Destination: /data/jekyll/web-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
