@@ -288,6 +288,7 @@ GitHub.sublime-settings
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
+.idea
 
 # Sensitive or high-churn files
 .idea/**/dataSources/
@@ -346,3 +347,9 @@ _site/
 .jekyll-metadata
 
 /.idea/vcs.xml
+/.idea/
+!/.idea/
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/radish.github.io.iml
